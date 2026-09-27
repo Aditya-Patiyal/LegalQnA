@@ -1,0 +1,15 @@
+name: Keep backend awake
+
+on:
+  schedule:
+    # Every 10 minutes, day-round. Render's free tier sleeps after 15
+    # minutes of no traffic, so this keeps it warm for demos/reviews.
+    - cron: "*/10 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /health
+        run: curl -sf --max-time 30 https://legal-ai-backend-hy70.onrender.com/health
