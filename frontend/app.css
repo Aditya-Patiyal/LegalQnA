@@ -5,14 +5,16 @@
 .text-error { color: var(--danger); }
 
 .nav-cta {
-  background: var(--accent-gradient);
-  color: #fff;
+  background: var(--primary);
+  color: #15191C;
   padding: 8px 16px;
   border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
   font: inherit;
+  font-weight: 600;
 }
+.nav-cta:hover { background: var(--primary-hover); }
 
 .btn-icon {
   background: transparent;
@@ -84,9 +86,9 @@
   font-weight: 600;
   margin-bottom: 8px;
 }
-.analysis-risk-low { background: rgba(34, 197, 94, 0.15); color: var(--success); }
-.analysis-risk-medium { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
-.analysis-risk-high { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
+.analysis-risk-low { background: rgba(79, 138, 106, 0.15); color: var(--success); }
+.analysis-risk-medium { background: rgba(181, 138, 74, 0.15); color: var(--warning); }
+.analysis-risk-high { background: rgba(169, 87, 87, 0.15); color: var(--danger); }
 .analysis-score { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
 
 .chatbot-sources {
