@@ -29,7 +29,6 @@
     <div class="container page-container">
       <div class="page-header">
         <h1 class="page-title">Welcome back, <span data-auth-name>User</span></h1>
-        <p class="page-subtitle">Upload a document, extract clauses, or check risk. This tool provides AI-generated legal information for informational purposes and does not constitute legal advice.</p>
       </div>
 
       <section id="features" class="features-section">
@@ -88,6 +87,34 @@
               <h3 class="why-title">You can delete your data</h3>
               <p class="why-description">Delete any uploaded document from your dashboard at any time — it's removed from storage and search immediately.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Ask a Legal Question</h2>
+          <p class="section-subtitle">General Indian law question — for chatting about a specific document, use <a href="/chat">Chat</a></p>
+        </div>
+        <div class="glass-card chatbot-box">
+          <div id="dashboard-chat-messages" class="chatbot-messages">
+            <div class="chatbot-empty"><p>Ask any legal question to start the conversation</p></div>
+          </div>
+          <div id="dashboard-chat-status" class="form-status"></div>
+          <div class="chatbot-input-area">
+            <div class="ask-bar-suggestions">
+              <button type="button" class="suggestion-chip" data-query="What is Section 420 IPC?">Section 420 IPC</button>
+              <button type="button" class="suggestion-chip" data-query="How to file a consumer complaint?">Consumer complaint</button>
+              <button type="button" class="suggestion-chip" data-query="What are tenant rights in India?">Tenant rights</button>
+            </div>
+            <form id="dashboard-ask-form" class="chatbot-input-form">
+              <div class="chatbot-input-wrapper">
+                <input type="text" id="dashboard-question" class="chatbot-input" placeholder="Ask any legal question..." />
+                <button type="submit" class="chatbot-send-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -152,34 +179,6 @@
           <div id="analysis-output" class="analysis-empty">
             <p class="analysis-empty-title">No analysis yet</p>
             <p class="analysis-empty-hint">Upload a document and click "Find Clause" or "Risk Analysis" to see results here</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="dashboard-section">
-        <div class="section-header">
-          <h2 class="section-title">Ask a Legal Question</h2>
-          <p class="section-subtitle">General Indian law question — for chatting about a specific document, use <a href="/chat">Chat</a></p>
-        </div>
-        <div class="glass-card chatbot-box">
-          <div id="dashboard-chat-messages" class="chatbot-messages">
-            <div class="chatbot-empty"><p>Ask any legal question to start the conversation</p></div>
-          </div>
-          <div id="dashboard-chat-status" class="form-status"></div>
-          <div class="chatbot-input-area">
-            <div class="ask-bar-suggestions">
-              <button type="button" class="suggestion-chip" data-query="What is Section 420 IPC?">Section 420 IPC</button>
-              <button type="button" class="suggestion-chip" data-query="How to file a consumer complaint?">Consumer complaint</button>
-              <button type="button" class="suggestion-chip" data-query="What are tenant rights in India?">Tenant rights</button>
-            </div>
-            <form id="dashboard-ask-form" class="chatbot-input-form">
-              <div class="chatbot-input-wrapper">
-                <input type="text" id="dashboard-question" class="chatbot-input" placeholder="Ask any legal question..." />
-                <button type="submit" class="chatbot-send-btn">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </section>
