@@ -1680,10 +1680,18 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .nav-logo-icon {
   font-size: 1.2rem;
+}
+
+.nav-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .nav-logo-text {
