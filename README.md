@@ -1,5 +1,10 @@
 # Legal AI Platform (v2)
 
+**🔗 Live demo: https://legal-qn-a-self.vercel.app**
+
+> Note: the backend runs on a free tier that sleeps after inactivity, so the
+> first request after an idle period may take ~30–60s to wake up.
+
 An AI legal assistant for Indian users: upload documents, chat with them (RAG),
 extract clauses, get a risk score, and generate draft legal documents. This is
 a rebuild of an earlier version that ran on GCP Cloud Run + Firebase Hosting —
