@@ -1242,6 +1242,9 @@ a {
   border-radius: var(--radius-lg);
   cursor: pointer;
   transition: all 0.2s ease;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .doc-type-card:hover {
