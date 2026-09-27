@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy | Legal AI Platform</title>
+    <link rel="stylesheet" href="/frontend/styles.css" />
+    <link rel="stylesheet" href="/frontend/app.css" />
+  </head>
+  <body data-page="privacy">
+    <div class="page-bg"></div>
+    <nav class="navbar-fixed">
+      <div class="navbar-container">
+        <a href="/" class="nav-brand"><div class="nav-logo-wrapper"><span class="nav-logo-icon">⚖</span></div><span class="nav-logo-text">LegalAI</span></a>
+      </div>
+    </nav>
+    <div class="container page-container" style="max-width: 720px;">
+      <div class="page-header">
+        <h1 class="page-title">Privacy</h1>
+      </div>
+      <div class="glass-card" style="line-height: 1.7;">
+        <p><strong>What we store:</strong> your account email, uploaded documents, extracted text, chat history, and generated documents — each tied to your account and readable only by you (enforced by database row-level security, not just application code).</p>
+        <p><strong>What we send to third parties:</strong> to answer a question or analyze a document, relevant text is sent to Groq (our AI provider) to generate a response, and to Hugging Face's inference API to generate search embeddings. Neither is used to train models on your data beyond that single request.</p>
+        <p><strong>What we don't do:</strong> we don't sell your data, share it with other users, or use it for advertising.</p>
+        <p><strong>Deleting your data:</strong> delete any document from your dashboard to remove it, its extracted text, and its search index immediately. Deleting your account removes everything tied to it.</p>
+        <p><strong>Disclaimer:</strong> this tool provides AI-generated legal information and analysis for informational purposes and does not constitute legal advice.</p>
+      </div>
+    </div>
+  </body>
+</html>

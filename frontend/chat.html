@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat | Legal AI Platform</title>
+    <link rel="stylesheet" href="/frontend/styles.css" />
+    <link rel="stylesheet" href="/frontend/app.css" />
+  </head>
+  <body data-page="chat">
+    <div class="page-bg"></div>
+
+    <nav class="navbar-fixed">
+      <div class="navbar-container">
+        <a href="/dashboard" class="nav-brand">
+          <div class="nav-logo-wrapper"><span class="nav-logo-icon">⚖</span></div>
+          <span class="nav-logo-text">LegalAI</span>
+        </a>
+        <div class="nav-menu">
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+          <a href="/generator" class="nav-link">Generate</a>
+          <a href="/chat" class="nav-link nav-link-active">Chat</a>
+          <button class="nav-link nav-logout" id="nav-logout-btn">Logout</button>
+        </div>
+        <button class="nav-mobile-toggle" id="nav-mobile-toggle"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <div class="container page-container">
+      <div class="disclaimer">
+        <p class="disclaimer-text">This platform provides automated legal assistance and does not replace a licensed lawyer.</p>
+      </div>
+
+      <div class="page-header">
+        <h1 class="page-title">Legal Chat</h1>
+        <p class="page-subtitle">Ask questions about Indian law or a document you've uploaded. Answers link back to the excerpt or section they came from.</p>
+      </div>
+
+      <div class="glass-card" style="margin-bottom: 20px;">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label class="form-label" for="chat-document-select">Chat about</label>
+          <select class="form-select" id="chat-document-select"></select>
+        </div>
+        <form id="chat-upload-form" style="margin-top: 12px;">
+          <div class="form-file form-file-compact">
+            <input class="form-file-input" type="file" accept=".pdf,.docx" required />
+            <label class="form-file-label" for="chat-upload-form">Upload a new document to chat with</label>
+          </div>
+          <div id="chat-upload-status" class="form-status"></div>
+        </form>
+      </div>
+
+      <div class="chat-page-layout">
+        <div class="glass-card chatbot-box chat-page-box">
+          <div id="chat-messages" class="chatbot-messages">
+            <div class="chatbot-empty"><p>Ask a question to get started</p></div>
+          </div>
+          <div class="chatbot-input-area">
+            <form id="chat-ask-form" class="chatbot-input-form">
+              <div class="chatbot-input-wrapper">
+                <input type="text" id="chat-question" class="chatbot-input" placeholder="Ask a question..." />
+                <button type="submit" class="chatbot-send-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand"><span class="footer-logo">⚖</span><span>Legal AI Platform</span></div>
+          <p class="footer-text"><a href="/privacy.html">Privacy Policy</a></p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/frontend/config.js"></script>
+    <script src="/frontend/script.js"></script>
+  </body>
+</html>

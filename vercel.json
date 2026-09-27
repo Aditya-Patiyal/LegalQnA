@@ -1,0 +1,16 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/frontend/index.html" },
+    { "source": "/dashboard", "destination": "/frontend/dashboard.html" },
+    { "source": "/chat", "destination": "/frontend/chat.html" },
+    { "source": "/generator", "destination": "/frontend/generator.html" },
+    { "source": "/privacy", "destination": "/frontend/privacy.html" }
+  ],
+  "headers": [
+    {
+      "source": "/frontend/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }]
+    }
+  ]
+}

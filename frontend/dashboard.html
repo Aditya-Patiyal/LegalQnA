@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | Legal AI Platform</title>
+    <link rel="stylesheet" href="/frontend/styles.css" />
+    <link rel="stylesheet" href="/frontend/app.css" />
+  </head>
+  <body data-page="dashboard">
+    <div class="page-bg"></div>
+
+    <nav class="navbar-fixed">
+      <div class="navbar-container">
+        <a href="/dashboard" class="nav-brand">
+          <div class="nav-logo-wrapper"><span class="nav-logo-icon">⚖</span></div>
+          <span class="nav-logo-text">LegalAI</span>
+        </a>
+        <div class="nav-menu">
+          <a href="/dashboard" class="nav-link nav-link-active">Dashboard</a>
+          <a href="/generator" class="nav-link">Generate</a>
+          <a href="/chat" class="nav-link">Chat</a>
+          <button class="nav-link nav-logout" id="nav-logout-btn">Logout</button>
+        </div>
+        <button class="nav-mobile-toggle" id="nav-mobile-toggle"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <div class="container page-container">
+      <div class="page-header">
+        <h1 class="page-title">Welcome back, <span data-auth-name>User</span></h1>
+        <p class="page-subtitle">Upload a document, extract clauses, or check risk. This tool provides AI-generated legal information for informational purposes and does not constitute legal advice.</p>
+      </div>
+
+      <section class="dashboard-section">
+        <div class="dashboard-grid">
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <h3 class="glass-card-title">Upload Document</h3>
+              <p class="glass-card-subtitle">Supported: PDF, DOCX (max 10MB)</p>
+            </div>
+            <form id="upload-form">
+              <div class="form-file">
+                <input class="form-file-input" id="document-file" type="file" accept=".pdf,.docx" required />
+                <label class="form-file-label" for="document-file">
+                  <span class="form-file-text">Click to upload or drag and drop</span>
+                </label>
+              </div>
+              <button class="btn btn-primary mt-4" type="submit" style="width: 100%;">Upload & Analyze</button>
+              <div id="upload-status" class="form-status"></div>
+            </form>
+          </div>
+
+          <div class="glass-card">
+            <div class="glass-card-header">
+              <h3 class="glass-card-title">Quick Analysis</h3>
+              <p class="glass-card-subtitle">Runs on your most recently uploaded document</p>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="clause-type">Find Specific Clause</label>
+              <select class="form-select" id="clause-type">
+                <option value="termination">Termination Clause</option>
+                <option value="penalty">Penalty Clause</option>
+                <option value="payment">Payment Terms</option>
+                <option value="confidentiality">Confidentiality</option>
+                <option value="liability">Liability</option>
+                <option value="renewal">Renewal Terms</option>
+              </select>
+            </div>
+            <div class="action-buttons">
+              <button id="quick-clause-button" class="btn btn-primary" type="button">Find Clause</button>
+              <button id="quick-risk-button" class="btn btn-secondary" type="button">Risk Analysis</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Your Documents</h2>
+        </div>
+        <div class="glass-card">
+          <div id="document-list" class="doc-list"></div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Analysis Results</h2>
+        </div>
+        <div class="glass-card">
+          <div id="analysis-output" class="analysis-empty">
+            <p class="analysis-empty-title">No analysis yet</p>
+            <p class="analysis-empty-hint">Upload a document and click "Find Clause" or "Risk Analysis" to see results here</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard-section">
+        <div class="section-header">
+          <h2 class="section-title">Ask a Legal Question</h2>
+          <p class="section-subtitle">General Indian law question — for chatting about a specific document, use <a href="/chat">Chat</a></p>
+        </div>
+        <div class="glass-card chatbot-box">
+          <div id="dashboard-chat-messages" class="chatbot-messages">
+            <div class="chatbot-empty"><p>Ask any legal question to start the conversation</p></div>
+          </div>
+          <div id="dashboard-chat-status" class="form-status"></div>
+          <div class="chatbot-input-area">
+            <div class="ask-bar-suggestions">
+              <button type="button" class="suggestion-chip" data-query="What is Section 420 IPC?">Section 420 IPC</button>
+              <button type="button" class="suggestion-chip" data-query="How to file a consumer complaint?">Consumer complaint</button>
+              <button type="button" class="suggestion-chip" data-query="What are tenant rights in India?">Tenant rights</button>
+            </div>
+            <form id="dashboard-ask-form" class="chatbot-input-form">
+              <div class="chatbot-input-wrapper">
+                <input type="text" id="dashboard-question" class="chatbot-input" placeholder="Ask any legal question..." />
+                <button type="submit" class="chatbot-send-btn">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <div class="disclaimer">
+        <p class="disclaimer-text">This platform provides automated legal assistance and does not replace a licensed lawyer.</p>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand"><span class="footer-logo">⚖</span><span>Legal AI Platform</span></div>
+          <p class="footer-text"><a href="/privacy.html">Privacy Policy</a></p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/frontend/config.js"></script>
+    <script src="/frontend/script.js"></script>
+  </body>
+</html>

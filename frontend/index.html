@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal AI Platform - Understand Legal Documents with AI</title>
+    <link rel="stylesheet" href="/frontend/styles.css" />
+    <link rel="stylesheet" href="/frontend/app.css" />
+  </head>
+  <body data-page="landing">
+    <div class="page-bg"></div>
+
+    <nav class="navbar-fixed">
+      <div class="navbar-container">
+        <a href="/" class="nav-brand">
+          <div class="nav-logo-wrapper"><span class="nav-logo-icon">⚖</span></div>
+          <span class="nav-logo-text">LegalAI</span>
+        </a>
+        <div class="nav-menu">
+          <a href="/dashboard" class="nav-link" data-requires-auth style="display:none;">Dashboard</a>
+          <a href="/generator" class="nav-link" data-requires-auth style="display:none;">Generate</a>
+          <a href="/chat" class="nav-link" data-requires-auth style="display:none;">Chat</a>
+          <button class="nav-link nav-logout" data-requires-auth id="nav-logout-btn" style="display:none;">Logout</button>
+          <button class="nav-link nav-cta" data-open-auth data-requires-guest>Sign in</button>
+        </div>
+        <button class="nav-mobile-toggle" id="nav-mobile-toggle"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <div class="container landing-container">
+      <section class="hero-spotlight">
+        <div class="hero-content">
+          <div class="hero-badge"><span class="hero-badge-dot"></span> AI-Powered Legal Assistant</div>
+          <h1 class="hero-title">Your Legal Questions,<br /><span class="hero-title-accent">Answered Instantly</span></h1>
+          <p class="hero-description">Ask any legal query, upload your documents for analysis, and get AI-powered insights — all in one place.</p>
+        </div>
+
+        <div class="ask-bar-section">
+          <div class="ask-bar-container glass-card-prominent">
+            <div class="chatbot-header">
+              <h3 class="chatbot-title">Ask a legal question</h3>
+            </div>
+            <div class="chatbot-suggestions-area" id="landing-suggestions">
+              <p class="suggestions-label">Try asking about:</p>
+              <div class="suggestions-grid">
+                <button type="button" class="suggestion-card" data-query="What is Section 420 IPC?"><span>Section 420 IPC</span></button>
+                <button type="button" class="suggestion-card" data-query="How to file a consumer complaint?"><span>Consumer complaint</span></button>
+                <button type="button" class="suggestion-card" data-query="What are tenant rights in India?"><span>Tenant rights</span></button>
+              </div>
+            </div>
+            <div id="landing-chat-messages" class="chatbot-messages"></div>
+            <div class="chatbot-input-area">
+              <form id="landing-ask-form" class="chatbot-input-form" data-open-auth>
+                <div class="chatbot-input-wrapper">
+                  <input type="text" id="landing-question" class="chatbot-input" placeholder="Sign in to ask a question..." readonly />
+                  <button type="submit" class="chatbot-send-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                  </button>
+                </div>
+              </form>
+              <p class="text-muted" style="margin-top:8px; font-size:0.85rem;">Sign in is required — your documents and questions are tied to your account, not shared with other visitors.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features-section">
+        <div class="section-header">
+          <h2 class="section-title">Powerful Features</h2>
+          <p class="section-subtitle">Everything you need to understand and work with legal documents</p>
+        </div>
+        <div class="features-grid-new">
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Document Intelligence</h3>
+            <p class="feature-description-new">Upload PDF and DOCX files. We extract, chunk, and embed the text so you can search and ask questions about it.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Legal Chat</h3>
+            <p class="feature-description-new">Ask questions in plain English. Get grounded answers with the document excerpt or law section they came from.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Clause Extraction</h3>
+            <p class="feature-description-new">Find termination, penalty, confidentiality, liability, and renewal clauses with a plain-English explanation and risk label.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Risk Analysis</h3>
+            <p class="feature-description-new">Get an AI-generated risk score with specific findings about one-sided terms and hidden penalties.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Document Generator</h3>
+            <p class="feature-description-new">Create legal notices, complaint letters, NDAs, and rental agreements from a short description.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Your account, your data</h3>
+            <p class="feature-description-new">Every document and conversation is tied to your signed-in account and enforced at the database level — no one else can see it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-section">
+        <div class="section-header">
+          <h2 class="section-title">What actually happens to your data</h2>
+          <p class="section-subtitle">No vague promises — here's the real data flow</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card glass-card">
+            <div class="why-content">
+              <h3 class="why-title">Your documents are processed to answer your questions</h3>
+              <p class="why-description">Uploaded files are stored in your private, account-scoped storage. To answer a question, the relevant excerpts are sent to our AI provider (Groq) to generate a response — the same way any AI-assisted tool works. Nothing is shared publicly or used to train models.</p>
+            </div>
+          </div>
+          <div class="why-card glass-card">
+            <div class="why-content">
+              <h3 class="why-title">Real per-account isolation</h3>
+              <p class="why-description">Access is enforced by database-level row-level security, not just application logic — your documents, chat history, and generated files are only ever queryable by you.</p>
+            </div>
+          </div>
+          <div class="why-card glass-card">
+            <div class="why-content">
+              <h3 class="why-title">You can delete your data</h3>
+              <p class="why-description">Delete any uploaded document from your dashboard at any time — it's removed from storage and search immediately.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="disclaimer">
+        <p class="disclaimer-text">
+          <strong>Legal Disclaimer:</strong> This tool provides AI-generated legal information and analysis for informational purposes and does not constitute legal advice. Always consult a qualified legal professional for important legal matters.
+        </p>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand"><span class="footer-logo">⚖</span><span>Legal AI Platform</span></div>
+          <p class="footer-text"><a href="/privacy.html">Privacy Policy</a></p>
+        </div>
+      </footer>
+    </div>
+
+    <div class="auth-modal" id="auth-modal">
+      <div class="auth-modal-card glass-card-prominent">
+        <button type="button" class="chatbot-collapse-btn" id="auth-modal-close">✕</button>
+        <h3>Sign in to Legal AI</h3>
+        <form id="signin-form">
+          <div class="form-group"><label class="form-label" for="auth-email">Email</label><input class="form-input" id="auth-email" type="email" required /></div>
+          <div class="form-group"><label class="form-label" for="auth-password">Password</label><input class="form-input" id="auth-password" type="password" required minlength="6" /></div>
+          <button class="btn btn-primary" type="submit" style="width:100%;">Sign In</button>
+        </form>
+        <button class="btn btn-secondary" type="button" id="signup-trigger" style="width:100%; margin-top:8px;">New here? Create an account</button>
+        <form id="signup-form" style="display:none;">
+          <p class="text-muted">Uses the same email/password fields above.</p>
+          <button class="btn btn-primary" type="submit" style="width:100%;">Create Account</button>
+        </form>
+        <div id="auth-status" class="form-status"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/frontend/config.js"></script>
+    <script src="/frontend/script.js"></script>
+    <script>
+      document.getElementById('auth-modal-close')?.addEventListener('click', () => byId('auth-modal').classList.remove('open'));
+      document.getElementById('signup-trigger')?.addEventListener('click', () => {
+        document.getElementById('signin-form').style.display = 'none';
+        document.getElementById('signup-form').style.display = '';
+      });
+      if (new URLSearchParams(window.location.search).get('auth')) {
+        document.addEventListener('DOMContentLoaded', () => document.getElementById('auth-modal')?.classList.add('open'));
+      }
+    </script>
+  </body>
+</html>

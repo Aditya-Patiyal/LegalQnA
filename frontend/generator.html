@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generator | Legal AI Platform</title>
+    <link rel="stylesheet" href="/frontend/styles.css" />
+    <link rel="stylesheet" href="/frontend/app.css" />
+  </head>
+  <body data-page="generator">
+    <div class="page-bg"></div>
+
+    <nav class="navbar-fixed">
+      <div class="navbar-container">
+        <a href="/dashboard" class="nav-brand">
+          <div class="nav-logo-wrapper"><span class="nav-logo-icon">⚖</span></div>
+          <span class="nav-logo-text">LegalAI</span>
+        </a>
+        <div class="nav-menu">
+          <a href="/dashboard" class="nav-link">Dashboard</a>
+          <a href="/generator" class="nav-link nav-link-active">Generate</a>
+          <a href="/chat" class="nav-link">Chat</a>
+          <button class="nav-link nav-logout" id="nav-logout-btn">Logout</button>
+        </div>
+        <button class="nav-mobile-toggle" id="nav-mobile-toggle"><span></span><span></span><span></span></button>
+      </div>
+    </nav>
+
+    <div class="container page-container">
+      <div class="disclaimer">
+        <p class="disclaimer-text">This platform provides automated legal assistance and does not replace a licensed lawyer. Generated documents are for reference only — consult a legal professional before using them for official purposes.</p>
+      </div>
+
+      <div class="page-header">
+        <h1 class="page-title">Document Generator</h1>
+        <p class="page-subtitle">Pick a document type, describe your situation, and we'll draft it — the fields below adjust to what each type needs.</p>
+      </div>
+
+      <div class="doc-type-grid">
+        <button class="doc-type-card active" type="button" data-type="complaint_letter"><span>Complaint Letter</span></button>
+        <button class="doc-type-card" type="button" data-type="legal_notice"><span>Legal Notice</span></button>
+        <button class="doc-type-card" type="button" data-type="nda"><span>NDA</span></button>
+        <button class="doc-type-card" type="button" data-type="rental_agreement"><span>Rental Agreement</span></button>
+      </div>
+
+      <div class="glass-card">
+        <form id="generator-form">
+          <input type="hidden" id="template-type" value="complaint_letter" />
+          <div class="dashboard-grid">
+            <div class="form-group">
+              <label class="form-label" for="gen-name">Your Full Name</label>
+              <input class="form-input" id="gen-name" type="text" placeholder="e.g., Rahul Sharma" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="gen-date">Date</label>
+              <input class="form-input" id="gen-date" type="date" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="gen-address">Your Address</label>
+            <input class="form-input" id="gen-address" type="text" placeholder="e.g., 12 MG Road, Jaipur, Rajasthan" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="gen-issue">Describe Your Situation</label>
+            <textarea class="form-textarea form-textarea-lg" id="gen-issue" required></textarea>
+            <p class="text-muted" id="gen-issue-hint" style="margin-top: 6px; font-size: 0.85rem;"></p>
+          </div>
+          <button class="btn btn-primary" type="submit">Generate Document</button>
+          <button class="btn btn-secondary" type="button" id="generator-force-btn" style="display:none; margin-left: 8px;">Generate Anyway</button>
+          <div id="generator-status" class="form-status"></div>
+        </form>
+
+        <div class="generator-preview" id="generator-preview" style="display:none;">
+          <h3 class="glass-card-title">Preview</h3>
+          <div class="generator-preview-text"></div>
+          <button class="btn btn-primary mt-4" type="button" data-download-url>Download PDF</button>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-content">
+          <div class="footer-brand"><span class="footer-logo">⚖</span><span>Legal AI Platform</span></div>
+          <p class="footer-text"><a href="/privacy.html">Privacy Policy</a></p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.1.6/dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/frontend/config.js"></script>
+    <script src="/frontend/script.js"></script>
+    <script>
+      document.getElementById('gen-date').valueAsDate = new Date();
+    </script>
+  </body>
+</html>
