@@ -142,14 +142,13 @@
       <div class="auth-modal-card glass-card-prominent">
         <button type="button" class="chatbot-collapse-btn" id="auth-modal-close">✕</button>
         <h3>Sign in to Legal AI</h3>
+        <div class="form-group"><label class="form-label" for="auth-email">Email</label><input class="form-input" id="auth-email" type="email" required /></div>
+        <div class="form-group"><label class="form-label" for="auth-password">Password</label><input class="form-input" id="auth-password" type="password" required minlength="6" /></div>
         <form id="signin-form">
-          <div class="form-group"><label class="form-label" for="auth-email">Email</label><input class="form-input" id="auth-email" type="email" required /></div>
-          <div class="form-group"><label class="form-label" for="auth-password">Password</label><input class="form-input" id="auth-password" type="password" required minlength="6" /></div>
           <button class="btn btn-primary" type="submit" style="width:100%;">Sign In</button>
         </form>
         <button class="btn btn-secondary" type="button" id="signup-trigger" style="width:100%; margin-top:8px;">New here? Create an account</button>
         <form id="signup-form" style="display:none;">
-          <p class="text-muted">Uses the same email/password fields above.</p>
           <button class="btn btn-primary" type="submit" style="width:100%;">Create Account</button>
         </form>
         <div id="auth-status" class="form-status"></div>
