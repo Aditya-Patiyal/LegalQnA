@@ -86,12 +86,23 @@ async function handleSignUp(event) {
   const email = byId('auth-email').value.trim();
   const password = byId('auth-password').value;
   showStatus('auth-status', 'Creating account...', 'loading');
-  const { error } = await supabaseClient.auth.signUp({ email, password });
+  const { data, error } = await supabaseClient.auth.signUp({ email, password });
   if (error) {
     showStatus('auth-status', error.message, 'error');
     return;
   }
-  showStatus('auth-status', 'Check your email to confirm your account, then sign in.', 'success');
+  if (data.session) {
+    // Email confirmation is disabled, so sign-up returns a live session —
+    // the user is already logged in; take them straight to the dashboard.
+    state.session = data.session;
+    showStatus('auth-status', 'Account created — taking you in...', 'success');
+    const modal = byId('auth-modal');
+    if (modal) modal.classList.remove('open');
+    window.location.href = '/dashboard';
+    return;
+  }
+  // Email confirmation is enabled — no session yet; prompt the user to sign in.
+  showStatus('auth-status', 'Account created. Now sign in with the same email and password.', 'success');
 }
 
 async function handleSignIn(event) {
