@@ -20,7 +20,6 @@
           <a href="/dashboard" class="nav-link nav-link-active">Dashboard</a>
           <a href="/generator" class="nav-link">Generate</a>
           <a href="/chat" class="nav-link">Chat</a>
-          <a href="/#features" class="nav-link">About</a>
           <button class="nav-link nav-logout" id="nav-logout-btn">Logout</button>
         </div>
         <button class="nav-mobile-toggle" id="nav-mobile-toggle"><span></span><span></span><span></span></button>
@@ -121,6 +120,66 @@
                 </button>
               </div>
             </form>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="features-section">
+        <div class="section-header">
+          <h2 class="section-title">Powerful Features</h2>
+          <p class="section-subtitle">Everything you need to understand and work with legal documents</p>
+        </div>
+        <div class="features-grid-new">
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Document Intelligence</h3>
+            <p class="feature-description-new">Upload PDF and DOCX files. We extract, chunk, and embed the text so you can search and ask questions about it.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Legal Chat</h3>
+            <p class="feature-description-new">Ask questions in plain English. Get grounded answers with the document excerpt or law section they came from.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Clause Extraction</h3>
+            <p class="feature-description-new">Find termination, penalty, confidentiality, liability, and renewal clauses with a plain-English explanation and risk label.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Risk Analysis</h3>
+            <p class="feature-description-new">Get an AI-generated risk score with specific findings about one-sided terms and hidden penalties.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Document Generator</h3>
+            <p class="feature-description-new">Create legal notices, complaint letters, NDAs, and rental agreements from a short description.</p>
+          </div>
+          <div class="feature-card-new glass-card">
+            <h3 class="feature-title-new">Your account, your data</h3>
+            <p class="feature-description-new">Every document and conversation is tied to your signed-in account and enforced at the database level — no one else can see it.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-section">
+        <div class="section-header">
+          <h2 class="section-title">What actually happens to your data</h2>
+          <p class="section-subtitle">No vague promises — here's the real data flow</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card glass-card">
+            <div class="why-content">
+              <h3 class="why-title">Your documents are processed to answer your questions</h3>
+              <p class="why-description">Uploaded files are stored in your private, account-scoped storage. To answer a question, the relevant excerpts are sent to our AI provider (Groq) to generate a response — the same way any AI-assisted tool works. Nothing is shared publicly or used to train models.</p>
+            </div>
+          </div>
+          <div class="why-card glass-card">
+            <div class="why-content">
+              <h3 class="why-title">Real per-account isolation</h3>
+              <p class="why-description">Access is enforced by database-level row-level security, not just application logic — your documents, chat history, and generated files are only ever queryable by you.</p>
+            </div>
+          </div>
+          <div class="why-card glass-card">
+            <div class="why-content">
+              <h3 class="why-title">You can delete your data</h3>
+              <p class="why-description">Delete any uploaded document from your dashboard at any time — it's removed from storage and search immediately.</p>
+            </div>
           </div>
         </div>
       </section>
